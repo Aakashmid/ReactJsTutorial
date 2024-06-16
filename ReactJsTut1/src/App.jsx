@@ -2,6 +2,7 @@ import { FirstTestComponent } from './Components/FirstTestComponent'
 import { LearnEvent } from './Components/LearnEvent'
 import { Learnjsx } from './Components/LearnJsx'
 import { LearnProps } from './Components/LearnProps'
+import { LearnUseEffect } from './Components/LearnUseEffect'
 import { LearnUseState } from './Components/LearnUseState'
 import { LiftingStateUp } from './Components/LiftingStateUp'
 function App() {
@@ -21,7 +22,9 @@ function App() {
 
       {/* <LiftingStateUp printData={showdata}/> */}
 
-      <LearnUseState/>
+      {/* <LearnUseState/> */}
+
+      <LearnUseEffect/>
     </>
   )
 }
