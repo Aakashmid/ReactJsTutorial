@@ -4,11 +4,12 @@ import { Learnjsx } from './Components/LearnJsx'
 import { LearnProps } from './Components/LearnProps'
 import { LearnUseEffect } from './Components/LearnUseEffect'
 import { LearnUseState } from './Components/LearnUseState'
+import { LearnUseMemo } from './Components/LearnUseMemo'
 import { LiftingStateUp } from './Components/LiftingStateUp'
 function App() {
-  const showdata=(d)=>{
-    console.log(d);
-  }
+  // const showdata=(d)=>{
+  //   console.log(d);
+  // }
   return (
     <>
       {/* <FirstTestComponent /> */}
@@ -24,7 +25,9 @@ function App() {
 
       {/* <LearnUseState/> */}
 
-      <LearnUseEffect/>
+      {/* <LearnUseEffect/> */}
+
+      <LearnUseMemo/>
     </>
   )
 }
