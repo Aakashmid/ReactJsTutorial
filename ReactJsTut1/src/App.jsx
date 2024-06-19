@@ -6,6 +6,7 @@ import { LearnUseEffect } from './Components/LearnUseEffect'
 import { LearnUseState } from './Components/LearnUseState'
 import { LearnUseMemo } from './Components/LearnUseMemo'
 import { LiftingStateUp } from './Components/LiftingStateUp'
+import { LearnUseCallback } from './Components/LearnUseCallback'
 function App() {
   // const showdata=(d)=>{
   //   console.log(d);
@@ -27,7 +28,9 @@ function App() {
 
       {/* <LearnUseEffect/> */}
 
-      <LearnUseMemo/>
+      {/* <LearnUseMemo/> */}
+
+    <LearnUseCallback/>
     </>
   )
 }
