@@ -7,6 +7,8 @@ import { LearnUseState } from './Components/LearnUseState'
 import { LearnUseMemo } from './Components/LearnUseMemo'
 import { LiftingStateUp } from './Components/LiftingStateUp'
 import { LearnUseCallback } from './Components/LearnUseCallback'
+import { LearnCustomHooks } from './Components/LearnCustomHooks'
+import { LearnConditionalRendering } from './Components/LearnConditionalRendering'
 function App() {
   // const showdata=(d)=>{
   //   console.log(d);
@@ -30,7 +32,12 @@ function App() {
 
       {/* <LearnUseMemo/> */}
 
-    <LearnUseCallback/>
+      {/* <LearnUseCallback /> */}
+
+      {/* <LearnCustomHooks/> */}
+
+      <LearnConditionalRendering/>
+
     </>
   )
 }
