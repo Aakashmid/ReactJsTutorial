@@ -9,6 +9,8 @@ import { LiftingStateUp } from './Components/LiftingStateUp'
 import { LearnUseCallback } from './Components/LearnUseCallback'
 import { LearnCustomHooks } from './Components/LearnCustomHooks'
 import { LearnConditionalRendering } from './Components/LearnConditionalRendering'
+import { LearnMap } from './Components/LearnMap'
+import { LearnInlineCss } from './Components/LearnInlineCss'
 function App() {
   // const showdata=(d)=>{
   //   console.log(d);
@@ -36,8 +38,11 @@ function App() {
 
       {/* <LearnCustomHooks/> */}
 
-      <LearnConditionalRendering/>
+      {/* <LearnConditionalRendering/> */}
 
+      {/* <LearnMap/> */}
+
+      <LearnInlineCss/>
     </>
   )
 }
