@@ -11,6 +11,9 @@ import { LearnCustomHooks } from './Components/LearnCustomHooks'
 import { LearnConditionalRendering } from './Components/LearnConditionalRendering'
 import { LearnMap } from './Components/LearnMap'
 import { LearnInlineCss } from './Components/LearnInlineCss'
+import { LearnExtCss } from './Components/LearnExtCss'
+import { LearnExtCss2 } from './Components/LearnExtCss2'
+import { LearnUseOfImages } from './Components/LearnUseOfImages'
 function App() {
   // const showdata=(d)=>{
   //   console.log(d);
@@ -42,7 +45,13 @@ function App() {
 
       {/* <LearnMap/> */}
 
-      <LearnInlineCss/>
+      {/* <LearnInlineCss/> */}
+
+      {/* <LearnExtCss/> */}
+      {/* <hr /> */}
+      {/* <LearnExtCss2/> */}
+
+      <LearnUseOfImages/>
     </>
   )
 }
