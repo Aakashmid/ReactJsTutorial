@@ -14,6 +14,8 @@ import { LearnInlineCss } from './Components/LearnInlineCss'
 import { LearnExtCss } from './Components/LearnExtCss'
 import { LearnExtCss2 } from './Components/LearnExtCss2'
 import { LearnUseOfImages } from './Components/LearnUseOfImages'
+import { LearnForm } from './Components/LearnForm'
+import { LearnENV } from './Components/LearnENV'
 function App() {
   // const showdata=(d)=>{
   //   console.log(d);
@@ -51,7 +53,10 @@ function App() {
       {/* <hr /> */}
       {/* <LearnExtCss2/> */}
 
-      <LearnUseOfImages/>
+      {/* <LearnUseOfImages/> */}
+
+      {/* <LearnForm/> */}
+      <LearnENV/>
     </>
   )
 }
