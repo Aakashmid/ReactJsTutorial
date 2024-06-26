@@ -16,6 +16,14 @@ function App() {
     }
   }
 
+  const DeletTask=(id)=>{
+    const olditems=state.items;
+    const items=olditems.filter((item,i)=>{
+        return id !== i
+    })
+    setState({items:items,text:''})
+  }
+
   return (
     <div className="container-fluid my-5">
       <div className="row">
@@ -29,8 +37,9 @@ function App() {
               <button className="btn btn-primary px-5" onClick={AddTask}>Add</button>
             </div>
             <div className="container-fluid">
-              <ul className="list-unstyled my-5 col-sm-9">
-                <Tasks items={state.items} />
+              <ul className="list-unstyled my-5 row">
+                {/* using props to send itemsto Tasks Component and also passing delete function handler so on click delete button we can hadle it  */}
+                <Tasks items={state.items} deleteTask={DeletTask}/>
               </ul>
             </div>
           </div>
