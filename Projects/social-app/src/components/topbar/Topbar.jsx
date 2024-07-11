@@ -18,6 +18,8 @@ export default function Topbar() {
                     <div className="topbarlink">Homepage</div>
                     <div className="topbarlink">Timeline</div>
                 </div>
+                <div className="topbarIcons">
+
                 <div className="topbarIconItem">
                     <Person/>
                     <span className="topbarIconBadge">1</span>
@@ -29,6 +31,7 @@ export default function Topbar() {
                 <div className="topbarIconItem">
                     <Notifications/>
                     <span className="topbarIconBadge">3</span>
+                </div>
                 </div>
                 <img className='topbarImg' src="/assets/person/1.jpeg" alt="" />
             </div>

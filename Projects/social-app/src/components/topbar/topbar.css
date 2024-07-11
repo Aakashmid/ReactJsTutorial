@@ -13,6 +13,7 @@
     cursor: pointer;
     font: bold;
     color: white;
+    margin-left: 20px;
 }
 
 .topbarLeft{
@@ -33,6 +34,35 @@
     display: flex;
     align-items: center;
 }
+.topbarlink{
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.topbarIcons{
+    display: flex;
+    align-items: center;
+}
+
+.topbarIconItem{
+    margin-right: 15px;
+    cursor: pointer;
+    position: relative;
+}
+.topbarIconBadge{
+    background-color: red;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -5px;    
+    right: -5px;    
+    border-radius: 50%;
+    font-size: 15px;
+}
+
 
 .searchbar{
     height: 30px;
@@ -59,4 +89,7 @@
 .topbarImg{
     width: 32px;
     height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
 }
