@@ -50,6 +50,30 @@ export default function sidebar() {
             <img src="/assets/person/2.jpeg" alt="" className="sidebarFriendImg" />
             <span className="sidebarFriendName">Steve Rogers</span>
           </li>
+          <li className="sidebarFriend">
+            <img src="/assets/person/2.jpeg" alt="" className="sidebarFriendImg" />
+            <span className="sidebarFriendName">Steve Rogers</span>
+          </li>
+          <li className="sidebarFriend">
+            <img src="/assets/person/2.jpeg" alt="" className="sidebarFriendImg" />
+            <span className="sidebarFriendName">Steve Rogers</span>
+          </li>
+          <li className="sidebarFriend">
+            <img src="/assets/person/2.jpeg" alt="" className="sidebarFriendImg" />
+            <span className="sidebarFriendName">Steve Rogers</span>
+          </li>
+          <li className="sidebarFriend">
+            <img src="/assets/person/2.jpeg" alt="" className="sidebarFriendImg" />
+            <span className="sidebarFriendName">Steve Rogers</span>
+          </li>
+          <li className="sidebarFriend">
+            <img src="/assets/person/2.jpeg" alt="" className="sidebarFriendImg" />
+            <span className="sidebarFriendName">Steve Rogers</span>
+          </li>
+          <li className="sidebarFriend">
+            <img src="/assets/person/2.jpeg" alt="" className="sidebarFriendImg" />
+            <span className="sidebarFriendName">Steve Rogers</span>
+          </li>
         </ul>
       </div>
     </div>

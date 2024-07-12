@@ -1,13 +1,18 @@
 
-import { useState } from 'react'
 import React from 'react'
-import Header from './components/framework/header'
+import {BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import QuizSelect from './components/QuizSelect'
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <React.Fragment>
-      <Header/>
+      <Router>
+        <Routes>
+          <Route path='/' Component={QuizSelect}>
+
+          </Route>
+        </Routes>
+      </Router>
     </React.Fragment>
   )
 }

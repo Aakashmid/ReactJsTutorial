@@ -1,13 +1,21 @@
 
 
-import AppBar from '@mui/material/AppBar';
+import { AppBar,Toolbar,Typography } from '@mui/material';
+
 
 export default function header() {
   return (
-    <>
-        <AppBar sx={{flexGrow:1}}>
-            Hello
+
+    // for adding styling in  we using sx 
+      <div sx={{flexGrow:1}}>
+        <AppBar position='static' color='default' elevation={0} >
+            <Toolbar>
+              <Typography variant='h6' color={'inherit'} sx={{}}>
+                Quizzes
+              </Typography>
+            </Toolbar>
         </AppBar>
-    </>
+      </div>
+  
   )
 }
