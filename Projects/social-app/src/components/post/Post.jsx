@@ -1,30 +1,33 @@
 import { MoreVert } from '@mui/icons-material'
 import './post.css'
-export default function Post() {
+import {users} from '../dummydata'
+export default function Post({post}) {
+    const user=users.filter((u)=>u.id === post.userId)[0]
   return (
+
     <div className="post">
         <div className="postWrapper">
             <div className="postTop">
                 <div className="postTopLeft">
-                    <img className='postProfileImg' src="/assets/person/2.jpeg" alt="" />
-                    <span className='postUsername'>Aaks kkk</span>
-                    <span className='postDate'>5 mins ago</span>
+                    <img className='postProfileImg' src={user.profilPhoto} alt="" />
+                    <span className='postUsername'>{user.username}</span>
+                    <span className='postDate'>{post.date}</span>
                 </div>
                 <div className="postTopRight">
                     <MoreVert/>
                 </div>
             </div>
             <div className="postCenter">
-                <span className="postContent">Hey this is my first post :) </span>
-                <img className='postImg' src="/assets/post/1.jpeg" alt="" />
+                <span className="postContent">{post.desc}</span>
+                <img className='postImg' src={post.photo} alt="" />
             </div>
             <div className="postBottom">
                 <div className="postLeftBottom">
                     <img className='likeIcon' src="assets/like.png" alt="" />
                     <img className='likeIcon' src="assets/heart.png" alt="" />
-                    <span className='postlikeCounter'>33 people like it </span>
+                    <span className='postlikeCounter'>{post.like} people like it </span>
                 </div>
-                <div className="postRightBottom"><span className="postComment">34 Comments</span></div>
+                <div className="postRightBottom"><span className="postComment">{post.comment} comments </span></div>
             </div>
         </div>
     </div>
