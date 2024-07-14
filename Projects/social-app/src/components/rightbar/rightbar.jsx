@@ -1,9 +1,10 @@
 import './rightbar.css'
+import { users } from '../dummydata'
+export default function rightbar({ profile }) {
 
-export default function rightbar() {
-  return (
-    <div className="rightbar">
-      <div className="rightbarWrapper">
+  const HomeRightBar = () => {
+    return (
+      <>
         <div className="birthdayContainer">
           <img src="assets/gift.png" alt="" className="birthdayImg" />
           <span className="birthdayText">
@@ -13,28 +14,34 @@ export default function rightbar() {
         <img src="assets/ad.png" alt="" className="rightbarAd" />
         <h4 className="rightbarTitle">Online Friends</h4>
         <ul className="rightbarFrientList">
-          <li className="rightbarFriend">
-            <div className="rightbarProfileImgContainer">
-              <img src="assets/person/3.jpeg" alt="" className="rightbarProfileImg" />
-              <span className="rightbarProfileOnline"></span>
-              <span className="rightbarUsername">John Fischer</span>
-            </div>
-          </li>
-          <li className="rightbarFriend">
-            <div className="rightbarProfileImgContainer">
-              <img src="assets/person/3.jpeg" alt="" className="rightbarProfileImg" />
-              <span className="rightbarProfileOnline"></span>
-              <span className="rightbarUsername">John Fischer</span>
-            </div>
-          </li>
-          <li className="rightbarFriend">
-            <div className="rightbarProfileImgContainer">
-              <img src="assets/person/3.jpeg" alt="" className="rightbarProfileImg" />
-              <span className="rightbarProfileOnline"></span>
-              <span className="rightbarUsername">John Fischer</span>
-            </div>
-          </li>
+          {users.map((u) => {
+            return (
+              <li key={u.id} className="rightbarFriend">
+                <div className="rightbarProfileImgContainer">
+                  <img src={u.profilePhoto} alt="" className="rightbarProfileImg" />
+                  <span className="rightbarProfileOnline"></span>
+                  <span className="rightbarUsername">{u.username}</span>
+                </div>
+              </li>
+            )
+          })}
         </ul>
+      </>
+    )
+  }
+
+  const ProfileRightBar = () => {
+    return (
+      <>
+        <div className="">this profile</div>
+      </>
+    )
+  }
+  return (
+    <div className="rightbar">
+      <div className="rightbarWrapper">
+        {profile ? <ProfileRightBar /> : <HomeRightBar />}
+
       </div>
     </div>
   )

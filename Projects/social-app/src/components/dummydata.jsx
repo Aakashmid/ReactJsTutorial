@@ -54,17 +54,17 @@ export  const users=[
     {
         id:1,
         username:'John Carter',
-        profilPhoto:'assets/person/1.jpeg'
+        profilePhoto:'assets/person/1.jpeg'
     },
     {
         id:2,
         username:'McRne Smith',
-        profilPhoto:'assets/person/2.jpeg'
+        profilePhoto:'assets/person/2.jpeg'
     },
     {
         id:3,
         username:'Steve Smith',
-        profilPhoto:'assets/person/3.jpeg'
+        profilePhoto:'assets/person/3.jpeg'
     },
     {
         id:4,
@@ -74,12 +74,12 @@ export  const users=[
     {
         id:5,
         username:'Tomura',
-        profilPhoto:'assets/person/6.jpeg'
+        profilePhoto:'assets/person/6.jpeg'
     },
     {
         id:6,
         username:'Gal Gaddot',
-        profilPhoto:'assets/person/5.jpeg'
+        profilePhoto:'assets/person/5.jpeg'
     },
 ]
 
