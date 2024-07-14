@@ -40,7 +40,7 @@ export default function QuizSelect() {
                                     
                                 </CardContent>
                                 <CardActions>
-                                    <Button variant='outlined' fullWidth color='primary' href='http://127.0.0.1:8000/r/django'>
+                                    <Button variant='outlined' fullWidth color='primary' href= 'localhost:5173/r/djangho'>
                                         Start Quiz
                                     </Button>
                                 </CardActions>
