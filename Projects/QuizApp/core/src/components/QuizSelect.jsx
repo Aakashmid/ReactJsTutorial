@@ -2,12 +2,11 @@ import Header from '../components/framework/header'
 import Footer from '../components/framework/footer'
 import ConnectApi from '../api/ConnectApi'
 import { Button, Card, CardActions, CardContent, CardHeader, Container, Grid, Typography } from '@mui/material';
-import { grey } from '@mui/material/colors';
+
 export default function QuizSelect() {
     const ApiUrl = 'http://127.0.0.1:8000/'
     const [dataState] = ConnectApi(ApiUrl);
 
-    console.log(dataState);
     return (
         <>
             <Header />
