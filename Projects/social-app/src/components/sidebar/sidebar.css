@@ -1,74 +1,77 @@
-.sidebar{
+.sidebar {
     flex: 3;
     height: calc(100vh - 50px);
-    overflow-y:scroll ;
+    overflow-y: scroll;
     position: fixed;
     top: 50px;
     width: 25%;
 
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     width: 5px;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
     background-color: rgb(236, 236, 236);
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
     background-color: rgb(172, 172, 172);
 }
 
-.sidebarWrapper{
-padding: 20px;
+.sidebarWrapper {
+    padding: 20px;
 }
 
-.sidebarList{
+.sidebarList {
     list-style: none;
     padding-left: 0;
 }
 
-.sidebarListItem{
+.sidebarListItem {
     display: flex;
-    align-items:end;
+    align-items: end;
     margin-bottom: 20px;
 }
 
-.sidebarIcon{
+.sidebarIcon {
     margin-right: 15px;
 }
-.sidebarButton{
- width: 150px;
- border: none;
- border-radius:5px ;
- font-weight: 500;
- padding: 10px;
+
+.sidebarButton {
+    width: 150px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    padding: 10px;
 }
 
-.sidebarHr{
+.sidebarHr {
     margin: 20px 0px;
 }
 
-.sidebarFriendList{
+.sidebarFriendList {
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-.sidebarFriend{
+.sidebarFriend {
     display: flex;
     align-items: center;
     padding: 5px 0px;
-    margin-bottom:5px ;
+    margin-bottom: 5px;
 }
 
-.sidebarFriendImg{
+.sidebarFriendImg {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    object-fit: cover; /* image fit completely without stretching */
+    object-fit: cover;
+    /* image fit completely without stretching */
 }
-.sidebarFriendName{
+
+.sidebarFriendName {
     margin-left: 15px;
 }
