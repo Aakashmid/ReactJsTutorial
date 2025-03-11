@@ -1,3 +1,27 @@
-:root{
-    --primary-color: #009879;
+:root {
+    --background: #ffffff;
+    --background-2: #000000;
+    --text-primary:#000000 ;
+    --text-secondary:#ffffff ;
+}
+
+[data-theme="dark"] {
+    --background: #000000;
+    --background-2: #ffffff;
+    --text-primary: #ffffff;
+    --text-secondary:#000000 ;
+}
+
+.background-primary{
+    background-color:var(--background);
+}
+.background-secondary{
+    background-color:var(--background-2);
+}
+
+.text-primary{
+    color:var(--text-primary);
+}
+.text-secondary{
+    color:var(--text-secondary);
 }

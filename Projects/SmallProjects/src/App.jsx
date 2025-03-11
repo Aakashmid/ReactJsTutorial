@@ -3,8 +3,10 @@ import Accordian from './components/accordian'
 import ChangeTheme from './components/change-theme'
 import ImageSlider from './components/ImageSlider'
 import LoadMoreData from './components/load-more-data'
+import TabContents from './components/Multiple-tabs/TabContents'
 import QrCodeGenerator from './components/QrCodeGenerator'
 import RandomGenerator from './components/random-color-generator'
+import ScrollbarProgress from './components/ScrollbarProgress'
 import StarRating from './components/StarRating'
 import TreeView from './components/tree-view'
 function App() {
@@ -25,7 +27,12 @@ function App() {
 
       {/* <QrCodeGenerator/> */}
 
-      <ChangeTheme/>
+      {/* <ChangeTheme/> */}
+
+
+      {/* <ScrollbarProgress/> */}
+
+      <TabContents/>
     </div>
   )
 }
