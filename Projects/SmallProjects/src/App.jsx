@@ -1,8 +1,10 @@
 
 import Accordian from './components/accordian'
 import ChangeTheme from './components/change-theme'
+import GithubProfileFinder from './components/GithubProfileFinder'
 import ImageSlider from './components/ImageSlider'
 import LoadMoreData from './components/load-more-data'
+import ModalPopover from './components/ModalPopover'
 import TabContents from './components/Multiple-tabs/TabContents'
 import QrCodeGenerator from './components/QrCodeGenerator'
 import RandomGenerator from './components/random-color-generator'
@@ -32,7 +34,11 @@ function App() {
 
       {/* <ScrollbarProgress/> */}
 
-      <TabContents/>
+      {/* <TabContents/> */}
+
+      {/* <ModalPopover/> */}
+
+      <GithubProfileFinder/>
     </div>
   )
 }
