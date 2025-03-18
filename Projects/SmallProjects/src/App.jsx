@@ -9,6 +9,7 @@ import TabContents from './components/Multiple-tabs/TabContents'
 import QrCodeGenerator from './components/QrCodeGenerator'
 import RandomGenerator from './components/random-color-generator'
 import ScrollbarProgress from './components/ScrollbarProgress'
+import SearchAutocomplete from './components/search-autocomplete'
 import StarRating from './components/StarRating'
 import TreeView from './components/tree-view'
 function App() {
@@ -38,7 +39,9 @@ function App() {
 
       {/* <ModalPopover/> */}
 
-      <GithubProfileFinder/>
+      {/* <GithubProfileFinder/> */}
+
+      <SearchAutocomplete/>
     </div>
   )
 }
