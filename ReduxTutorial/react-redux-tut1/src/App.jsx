@@ -22,9 +22,9 @@ function App() {
         <h1>Counter</h1>
         <h2>Count : {count}</h2>
         <div style={{ display: 'flex', gap: "10px", alignItems: 'center' }} className="">
-          <button onClick={() => handleIncrement()}>+</button>
-          <button onClick={() => handleDecrement()}>-</button>
-          <button onClick={() => dispatch(reset())}>reset</button>
+          <button style={{cursor:"pointer"}} onClick={() => handleIncrement()}>+</button>
+          <button style={{cursor:"pointer"}} onClick={() => handleDecrement()}>-</button>
+          <button style={{cursor:"pointer"}} onClick={() => dispatch(reset())}>reset</button>
         </div>
         <br />
         <input type="number"  onChange={(e)=>setAmount(e.target.value)}/>

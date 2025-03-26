@@ -11,6 +11,7 @@ import RandomGenerator from './components/random-color-generator'
 import ScrollbarProgress from './components/ScrollbarProgress'
 import SearchAutocomplete from './components/search-autocomplete'
 import StarRating from './components/StarRating'
+import TicTacToe from './components/tic-tac-toe'
 import TreeView from './components/tree-view'
 function App() {
 
@@ -41,7 +42,10 @@ function App() {
 
       {/* <GithubProfileFinder/> */}
 
-      <SearchAutocomplete/>
+      {/* <SearchAutocomplete/> */}
+
+
+    <TicTacToe/>
     </div>
   )
 }
