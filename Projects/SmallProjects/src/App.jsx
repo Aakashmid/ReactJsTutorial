@@ -1,6 +1,8 @@
 
 import Accordian from './components/accordian'
 import ChangeTheme from './components/change-theme'
+import FeatureFlags from './components/feature-flags'
+import FeatureFlagsGlobalState from './components/feature-flags/FeatureFlagsContext'
 import GithubProfileFinder from './components/GithubProfileFinder'
 import ImageSlider from './components/ImageSlider'
 import LoadMoreData from './components/load-more-data'
@@ -45,7 +47,12 @@ function App() {
       {/* <SearchAutocomplete/> */}
 
 
-    <TicTacToe/>
+      {/* <TicTacToe/> */}
+
+
+      <FeatureFlagsGlobalState >
+        <FeatureFlags />
+      </FeatureFlagsGlobalState>
     </div>
   )
 }
