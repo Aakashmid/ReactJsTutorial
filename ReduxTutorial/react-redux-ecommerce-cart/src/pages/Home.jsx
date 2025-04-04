@@ -24,12 +24,12 @@ export default function Home() {
   }, [])
 
   return (
-    <div className='container mx-auto w-full xl:w-2/3'>
-      <div className="header mt-4 px-5">
-        <h1 className="text-xl font-semibold text-left">Products</h1>
+    <div className='container mx-auto w-full xl:w-2/3 mt-20 '>
+      <div className="header py-2 px-5">
+        <h1 className="text-2xl font-semibold text-left">Products</h1>
       </div>
       {!productsLoading ?
-        <div className="w-full grid grid-cols-3 gap-4  lg:px-10 px-5 xl:px-5  py-8">
+        <div className="w-full grid grid-cols-2 lg:grid-cols-3 gap-4  lg:px-10 px-5 xl:px-5  py-5">
           {products && products.map((product) => (
             <Card key={product.id} product={product} />
           ))
