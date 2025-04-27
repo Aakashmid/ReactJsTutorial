@@ -1,60 +1,42 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import IncDec from '../components/products/IncDec'
+import { removeItem } from '../redux/features/cartSlice'
 
-export default function CartDetails() {
-    const [cartItems, setCartItems] = useState([]);
-    const CartItem = ({ cart }) => {
-        return (
-            <tr className="border-b">
-                <td className="py-2 px-5 text-left">
-                    <button className="bg-red-500 text-white px-2 py-1 rounded">Delete</button>
-                </td>
-                <td className="py-2 px-5 text-left">
-                    <img src={cart.image} alt={cart.name} className="w-16 h-16 object-cover" />
-                </td>
-                <td className="py-2 px-5 text-left">{cart.name}</td>
-                <td className="py-2 px-5 text-left">${cart.price}</td>
-                <td className="py-2 px-5 text-left">
-                    <div className="flex items-center gap-2">
-                        <button className="bg-gray-200 px-2 py-1 rounded">-</button>
-                        <span>{cart.quantity}</span>
-                        <button className="bg-gray-200 px-2 py-1 rounded">+</button>
-                    </div>
-                </td>
-                <td className="py-2 px-5 text-right">${cart.price * cart.quantity}</td>
-            </tr>
-        )
-    }
+export default function CartDetails({ }) {
+    const cartItems = useSelector((state) => state.cart.cartItems)
+
+    return (
+        <div className="container mx-auto p-4 pt-20">
+            <h2 className="text-2xl font-bold mb-4">Shopping Cart</h2>
+            <div className="grid gap-4">
+                {cartItems.map((item) => (
+                    <CartItem key={item.id} item={item} />
+                ))}
+            </div>
+        </div>
+    )
+}
+
+function CartItem({ item }) {
+    const dispatch = useDispatch()
+    const handleRemoveItem = () => {
+        dispatch(removeItem(item.id))
+    }   
+
 
 
     return (
-        <div className='cart-detail-container'>
-            <div className="mt-20 rounded-xl w-[70%] mx-auto overflow-hidden">
-                <div className="header py-3 bg-gray-800 flex justify-between items-center px-5 ">
-                    <h1 className="text-2xl text-white">Cart Calculation(2)</h1>
-
-                    {/* on click empty cart remove all cart items , only show empty cart items when cart is not empty */}
-                    <button className="empyt-cart-btn bg-red-500 text-white font-semibold cursor-pointer hover:bg-red-400 rounded-lg py-1 px-4">
-                        Empty Cart
-                    </button>
-                </div>
-                <div className="content">
-                    <table className="w-full">
-                        <thead>
-                            <tr className="border-b">
-                                <th className="py-2 px-5 text-left">Action</th>
-                                <th className="py-2 px-5 text-left">Product</th>
-                                <th className="py-2 px-5 text-left">Name</th>
-                                <th className="py-2 px-5 text-left">Price</th>
-                                <th className="py-2 px-5 text-left">Qty</th>
-                                <th className="py-2 px-5 text-right">Total Amount</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {cartItems && cartItems.length != 0 && cartItems.map((cart, index) => {                                
-                            <CartItem cart={cart} />
-                            })}
-                        </tbody>
-                    </table>
+        <div className="border rounded-lg p-4  flex items-center gap-4">
+            <img src={item.thumbnail} alt={item.title} className="w-24 h-24 object-cover" />
+            <div className="flex-grow">
+                <h3 className="text-lg font-semibold">{item.title}</h3>
+                <p className="text-gray-600">${item.price}</p>
+                <p className="text-sm">Quantity: {item.quantity}</p>
+                <div className="mt-2 flex flex-col  lg:grid grid-cols-3 gap-4" >
+                    <IncDec product={item}/>
+                    <button onClick={handleRemoveItem} className="bg-red-400 text-white px-4 py-1 rounded-lg hover:bg-red-500 cursor-pointer transition duration-300">Remove Item</button>
+                    <button className="bg-green-500 text-white px-4 py-1 rounded-lg hover:bg-green-600 cursor-pointer transition duration-300">Buy Now</button>
                 </div>
             </div>
         </div>

@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../components/Card';
+import { useSelector } from 'react-redux';
 
 export default function Home() {
   const [products, setProducts] = useState([]);
   const [productsLoading, setProductsLoading] = useState(true);
+  const {cartItems} = useSelector((state) => state.cart);
+
+
+
   useEffect(() => {
     try {
       setProductsLoading(true);
       const fetchProducts = async () => {
-        const response = await fetch('https://dummyjson.com/products?limit=20');
+        const response = await fetch('https://dummyjson.com/products?limit=20&select=id,title,description,price,rating,stock,thumbnail,images,category,brand');
         const data = await response.json();
         if (data && data.products) {
           setProducts(data.products);
@@ -23,6 +28,7 @@ export default function Home() {
     }
   }, [])
 
+  
   return (
     <div className='container mx-auto w-full xl:w-2/3 mt-20 '>
       <div className="header py-2 px-5">
