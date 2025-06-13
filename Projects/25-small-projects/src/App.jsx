@@ -15,6 +15,10 @@ import SearchAutocomplete from './components/search-autocomplete'
 import StarRating from './components/StarRating'
 import TicTacToe from './components/tic-tac-toe'
 import TreeView from './components/tree-view'
+import UseClickOutsideTest from './components/use-click-outside/test'
+import UseFetchHookTest from './components/use-fetch/test'
+import WindowResizeTest from './components/use-window-resize/test'
+
 function App() {
 
   return (
@@ -50,9 +54,15 @@ function App() {
       {/* <TicTacToe/> */}
 
 
-      <FeatureFlagsGlobalState >
+      {/* <FeatureFlagsGlobalState >
         <FeatureFlags />
-      </FeatureFlagsGlobalState>
+      </FeatureFlagsGlobalState> */}
+
+      {/* <UseFetchHookTest/> */}
+
+      {/* <UseClickOutsideTest/> */}
+
+      <WindowResizeTest/>
     </div>
   )
 }
