@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 
 const Navbar = () => {
   return (
-    <nav className="px-5 py-2 border-b h-14">
+    <nav className="px-5 py-2 border-b h-14 fixed top-0 w-full bg-white">
       <div className="flex justify-between items-center">
         <div className="logo flex items-center gap-3">
           <span className="logo-icon"><ShoppingCart className='w-5 h-auto'/></span>

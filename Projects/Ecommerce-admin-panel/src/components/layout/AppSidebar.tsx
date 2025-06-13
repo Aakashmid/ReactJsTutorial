@@ -1,9 +1,8 @@
-import { ArrowLeft, Calendar, GitBranch, Home, Inbox, Search, Settings } from "lucide-react"
+import { ArrowLeft, ArrowRight, Calendar, Home, Inbox, Search, Settings } from "lucide-react"
 
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
@@ -13,27 +12,29 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 import { Button } from "../ui/button"
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 // Menu items.
 const items = [
   {
-    title: "Home",
-    url: "#",
+    title: "Overview",
+    url: "/overview",
     icon: Home,
   },
   {
-    title: "Inbox",
-    url: "#",
+    title: "Products",
+    url: "/products",
     icon: Inbox,
   },
   {
-    title: "Calendar",
-    url: "#",
+    title: "Orders",
+    url: "/orders",
     icon: Calendar,
   },
   {
-    title: "Search",
-    url: "#",
+    title: "Customers",
+    url: "/customers",
     icon: Search,
   },
   {
@@ -44,21 +45,33 @@ const items = [
 ]
 
 export function AppSidebar() {
-  const { toggleSidebar } = useSidebar();
+  const { isMobile } = useSidebar();
+  const [isOpen, setIsOpen] = useState(isMobile ? false : true);
+
   return (
-    <Sidebar className="">
-      <SidebarContent className="py-2">
-        <SidebarGroup>
-          <SidebarGroupLabel>Admin</SidebarGroupLabel>
+    <Sidebar
+      className={`transition-all duration-500 ease-in-out p-4  ${isOpen ? "w-64" : "w-16"
+        }`}
+      style={{
+        overflow: "hidden",
+        transitionProperty: "width, background-color, box-shadow",
+      }}
+    >
+      <SidebarContent className="bg-white overflow-hidden">
+        <SidebarGroup className="p-0">
+          {isOpen &&
+            <SidebarGroupLabel className="text-lg font-medium my-2">Admin</SidebarGroupLabel>
+          }
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </a>
+                  <SidebarMenuButton className="rounded-xl hover:bg-primary transition-all px-3 duration-300 " asChild>
+                    <Link className="font-medium" to={item.url}>
+                      <item.icon className="" />
+                      {isOpen &&
+                        <span  >{item.title}</span>}
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
@@ -66,18 +79,23 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className="pb-5">
-        <Button onClick={() => toggleSidebar()
+      <div className="bg-white w-full">
+        <Button onClick={() => setIsOpen(!isOpen)
         }
-          className="justify-start cursor-pointer text-black  font-semibold hover:bg-gray-100  shadow-none bg-transparent"
+          className=" justify-start cursor-pointer text-black   w-full font-semibold hover:bg-primary  bg-white shadow-none   rounded-xl"
         >
-          <ArrowLeft className="h-7 w-auto "
-          />
-          <span className="">
-            Collapse
-          </span>
+          {isOpen ?
+            <>
+              <ArrowLeft className={`h-7 w-auto `} />
+              <span className="">
+                Collapse
+              </span>
+            </>
+            :
+            <ArrowRight className={`h-7 w-auto `} />
+          }
         </Button>
-      </SidebarFooter>
+      </div>
     </Sidebar>
   )
 }
