@@ -10,6 +10,8 @@ import ModalPopover from './components/ModalPopover'
 import TabContents from './components/Multiple-tabs/TabContents'
 import QrCodeGenerator from './components/QrCodeGenerator'
 import RandomGenerator from './components/random-color-generator'
+import { ScrollToTopBottom } from './components/Scroll-to-top-and-bottom'
+import ScrollToSection from './components/Scroll-to-top-and-bottom/ScrollToSection'
 import ScrollbarProgress from './components/ScrollbarProgress'
 import SearchAutocomplete from './components/search-autocomplete'
 import StarRating from './components/StarRating'
@@ -62,7 +64,12 @@ function App() {
 
       {/* <UseClickOutsideTest/> */}
 
-      <WindowResizeTest/>
+      {/* <WindowResizeTest/> */}
+
+
+      {/* <ScrollToTopBottom/> */}
+
+      <ScrollToSection/>
     </div>
   )
 }
