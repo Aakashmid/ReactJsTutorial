@@ -3,17 +3,17 @@ import { ArrowLeft, ArrowRight, Calendar, Home, Inbox, Search, Settings } from "
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar"
-import { Button } from "../ui/button"
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 // Menu items.
 const items = [
@@ -45,32 +45,26 @@ const items = [
 ]
 
 export function AppSidebar() {
-  const { isMobile } = useSidebar();
-  const [isOpen, setIsOpen] = useState(isMobile ? false : true);
-
+ 
   return (
-    <Sidebar
-      className={`transition-all duration-500 ease-in-out p-4  ${isOpen ? "w-64" : "w-16"
-        }`}
-      style={{
-        overflow: "hidden",
-        transitionProperty: "width, background-color, box-shadow",
-      }}
-    >
-      <SidebarContent className="bg-white overflow-hidden">
+    <Sidebar collapsible="icon" className="p-4" >
+      <SidebarContent className="bg-white ">
         <SidebarGroup className="p-0">
-          {isOpen &&
-            <SidebarGroupLabel className="text-lg font-medium my-2">Admin</SidebarGroupLabel>
-          }
+          <SidebarGroupLabel className="text-lg font-medium my-2">
+            Admin
+          </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton className="rounded-xl hover:bg-primary transition-all px-3 duration-300 " asChild>
-                    <Link className="font-medium" to={item.url}>
-                      <item.icon className="" />
-                      {isOpen &&
-                        <span  >{item.title}</span>}
+                  <SidebarMenuButton
+                    className="rounded-xl hover:bg-primary transition-all px-3  duration-300"
+                    asChild
+                    tooltip={item.title}
+                  >
+                    <Link className="font-medium flex items-center gap-3" to={item.url}>
+                      <item.icon className="h-5 w-5 shrink-0" />
+                      <span className="truncate">{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -79,23 +73,10 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <div className="bg-white w-full">
-        <Button onClick={() => setIsOpen(!isOpen)
-        }
-          className=" justify-start cursor-pointer text-black   w-full font-semibold hover:bg-primary  bg-white shadow-none   rounded-xl"
-        >
-          {isOpen ?
-            <>
-              <ArrowLeft className={`h-7 w-auto `} />
-              <span className="">
-                Collapse
-              </span>
-            </>
-            :
-            <ArrowRight className={`h-7 w-auto `} />
-          }
-        </Button>
-      </div>
+
+      <SidebarFooter className="bg-white">
+        <SidebarTrigger className="justify-start cursor-pointer text-black w-full font-semibold hover:bg-primary bg-white shadow-none px-2 rounded-xl"/>
+      </SidebarFooter>
     </Sidebar>
   )
 }

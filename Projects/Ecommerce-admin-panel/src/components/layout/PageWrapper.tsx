@@ -1,6 +1,6 @@
 // import React from 'react'
 
-import { SidebarProvider, SidebarTrigger} from "../ui/sidebar";
+import { SidebarProvider} from "../ui/sidebar";
 import { AppSidebar } from "./AppSidebar"
 import Navbar from "./Navbar"
 
@@ -11,10 +11,11 @@ const PageWrapper = ({ children }: { children: React.ReactNode }) => {
       <header className="relative z-50">
         <Navbar />
       </header>
+
       <SidebarProvider className="">
         <AppSidebar />
         {/* <AppSidebar /> */}
-        <main className="w-full mt-14">
+        <main className="w-full max-w-[65rem] mx-auto mt-14">
           <div className="main-content-wrapper p-5">
             {children}
           </div>

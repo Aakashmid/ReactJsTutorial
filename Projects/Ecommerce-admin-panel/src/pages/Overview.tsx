@@ -46,15 +46,16 @@ const Overview = () => {
 
         </div>
 
-        <div className="chart-container bg-white rounded-lg shadow p-6 mt-6">
+        <div className="chart-container bg-white rounded-xl border p-6 mt-6">
           <div className="flex items-center justify-between mb-4">
-            <div>
-              <p className="text-sm text-muted-foreground">Sales (Last 7 days)</p>
+            <div className='flex flex-col gap-1 '>
+              <p className="font-medium">Sales </p>
               <p className="text-2xl font-bold">$12,345.67</p>
+              <p className="text-sm  text-green"><span className="text-muted-foreground ">Last 7 days</span> +20.1%</p>
             </div>
           </div>
           {/* Chart.js or Recharts can be used, here is an example with Recharts */}
-          <div className="w-full h-64">
+          <div className="w-full h-64 mt-6">
             {/* Install recharts: npm install recharts */}
             {/* Place this import at the top of your file:
             */}
@@ -69,16 +70,19 @@ const Overview = () => {
             { date: 'Jun 6', sales: 1700 },
             { date: 'Jun 7', sales: 3050 },
           ]}
-          margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+          margin={{ top: 10, right: 30, left: -20, bottom: 0 }}
               >
           <XAxis dataKey="date" stroke="#888888" fontSize={12} />
           <YAxis stroke="#888888" fontSize={12} />
           <Tooltip />
-          <Line type="monotone" dataKey="sales" stroke="#4f46e5" strokeWidth={2} dot={{ r: 4 }} />
+          <Line type="monotone" dataKey="sales" dot={false} stroke="#4f46e5" strokeWidth={2}  />
               </LineChart>
             </ResponsiveContainer>
           </div>
         </div>
+      </div>
+      <div className="recent-orders-table container">
+
       </div>
     </PageWrapper>
   )

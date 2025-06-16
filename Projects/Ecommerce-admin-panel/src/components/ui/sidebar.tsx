@@ -2,7 +2,7 @@ import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva } from "class-variance-authority"
 import type { VariantProps } from "class-variance-authority"
-import { ArrowRight, PanelLeftIcon } from "lucide-react"
+import { ArrowLeft, ArrowRight, PanelLeftIcon } from "lucide-react"
 
 import { useIsMobile } from "@/hooks/use-mobile"
 import { cn } from "@/lib/utils"
@@ -257,7 +257,7 @@ function SidebarTrigger({
   onClick,
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { toggleSidebar  } = useSidebar()
+  const { toggleSidebar, open } = useSidebar()
 
   return (
 
@@ -274,8 +274,14 @@ function SidebarTrigger({
       {...props}
     >
 
-      <ArrowRight />
-      <span className="sr-only">Toggle Sidebar</span>
+      {!open ? <ArrowRight />
+        :
+        <>
+          <ArrowLeft />
+          <span className="">Collapse</span>
+        </>
+      }
+
     </Button>
   )
 }
@@ -375,7 +381,7 @@ function SidebarContent({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="sidebar-content"
       data-sidebar="content"
       className={cn(
-        "flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden",
+        "flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-visible",
         className
       )}
       {...props}
