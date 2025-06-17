@@ -56,7 +56,7 @@ export default function Details() {
             ) !== -1
               ? "Remove from favorites"
               : "Add to favorites"}
-          </button>
+          1</button>
         </div>
         <div>
           <span className="text-2xl font-semibold text-black">
