@@ -11,7 +11,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarTrigger,
-  useSidebar,
+
 } from "@/components/ui/sidebar"
 import { Link } from "react-router-dom";
 
@@ -19,7 +19,7 @@ import { Link } from "react-router-dom";
 const items = [
   {
     title: "Overview",
-    url: "/overview",
+    url: "/",
     icon: Home,
   },
   {
@@ -47,10 +47,10 @@ const items = [
 export function AppSidebar() {
  
   return (
-    <Sidebar collapsible="icon" className="p-4" >
-      <SidebarContent className="bg-white ">
+    <Sidebar collapsible="icon" className="" >
+      <SidebarContent className="bg-white px-3 py-2">
         <SidebarGroup className="p-0">
-          <SidebarGroupLabel className="text-lg font-medium my-2">
+          <SidebarGroupLabel className="text-lg font-medium text-black  my-2">
             Admin
           </SidebarGroupLabel>
           <SidebarGroupContent>
@@ -74,7 +74,7 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="bg-white">
+      <SidebarFooter className="bg-white px-3">
         <SidebarTrigger className="justify-start cursor-pointer text-black w-full font-semibold hover:bg-primary bg-white shadow-none px-2 rounded-xl"/>
       </SidebarFooter>
     </Sidebar>
