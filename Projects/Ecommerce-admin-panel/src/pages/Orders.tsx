@@ -1,61 +1,56 @@
 import PageWrapper from '@/components/layout/PageWrapper'
 import { Input } from '@/components/ui/input'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { Plus, SearchIcon, X } from 'lucide-react'
-import productsData from '@/data/ProductsData'
+import { SearchIcon, X } from 'lucide-react'
+import ordersData from '@/data/OrdersData'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
 import useFilter , { type ColumnConfig } from '@/hooks/use-filter'
-import renderFilterInput from '@/components/common/render-filter-input'
 
-// Define column configurations for products
-const productColumnConfigs: ColumnConfig[] = [
-  { key: 'name', label: 'Product Name', type: 'text' },
-  { key: 'category', label: 'Category', type: 'select', options: [...new Set(productsData.map(p => p.category))] },
-  { key: 'price', label: 'Price', type: 'number' },
-  { key: 'stock', label: 'Stock', type: 'number' },
-  { key: 'status', label: 'Status', type: 'select', options: ['Active', 'Inactive', 'Out of Stock'] },
+
+// Define column configurations for orders
+const orderColumnConfigs: ColumnConfig[] = [
+  { key: 'product', label: 'Product', type: 'text' },
+  { key: 'status', label: 'Status', type: 'select', options: ['Pending', 'Processing', 'Shipped', 'Delivered', 'Cancelled'] },
+  { key: 'customer', label: 'Customer', type: 'text' },
+  { key: 'date', label: 'Order Date', type: 'date' },
+  { key: 'totalPrice', label: 'Total Price', type: 'number' },
+  { key: 'address', label: 'Address', type: 'text' }
 ]
 
-const Products = () => {
+const Orders = () => {
   const {
     searchTerm,
     setSearchTerm,
     filters,
-    filteredData: filteredProducts,
+    filteredData: filteredOrders,
     addFilter,
     updateFilter,
     removeFilter,
     clearAllFilters,
     getOperatorsForColumn,
-    getColumnConfig,
-    getFilterStats
+    getFilterStats,
+    // renderFilterInput
   } = useFilter({
-    data: productsData,
-    columnConfigs: productColumnConfigs
+    data: ordersData,
+    columnConfigs: orderColumnConfigs
   })
 
   const { total, filtered } = getFilterStats()
-
- 
 
   return (
     <PageWrapper>
       <div className="space-y-6">
         {/* Header */}
         <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Products</h1>
-          <Button className='text-black hover:bg-gray-200 cursor-pointer rounded-2xl'>
-            <Plus className="w-4 h-4 mr-2" />
-            Add Product
-          </Button>
+          <h1 className="text-2xl font-bold">Orders</h1>
         </div>
 
         {/* Search */}
         <div className="relative">
           <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
           <Input
-            placeholder="Search products..."
+            placeholder="Search orders..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-10"
@@ -89,7 +84,7 @@ const Products = () => {
                   <SelectValue placeholder="Select column" />
                 </SelectTrigger>
                 <SelectContent>
-                  {productColumnConfigs.map(config => (
+                  {orderColumnConfigs.map(config => (
                     <SelectItem key={config.key} value={config.key}>
                       {config.label}
                     </SelectItem>
@@ -117,7 +112,7 @@ const Products = () => {
               )}
 
               {/* Value Input */}
-              {filter.column && filter.operator && renderFilterInput(getColumnConfig,filter,updateFilter)}
+              {filter.column && filter.operator && renderFilterInput(filter)}
 
               {/* Remove Filter */}
               <Button
@@ -133,45 +128,53 @@ const Products = () => {
 
         {/* Results Summary */}
         <div className="text-sm text-gray-600">
-          Showing {filtered} of {total} products
+          Showing {filtered} of {total} orders
         </div>
 
-        {/* Products Table */}
+        {/* Orders Table */}
         <div className="border rounded-lg">
-          <Table>
+          <Table className='overflow-hidden w-full'>
             <TableHeader>
               <TableRow>
-                <TableHead>Name</TableHead>
-                <TableHead>Category</TableHead>
-                <TableHead>Price</TableHead>
-                <TableHead>Stock</TableHead>
+                <TableHead>Product</TableHead>
+                <TableHead>Customer</TableHead>
+                <TableHead>Date</TableHead>
+                <TableHead>Total Price</TableHead>
                 <TableHead>Status</TableHead>
+                <TableHead>Address</TableHead>
                 <TableHead>Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {filteredProducts.map((product) => (
-                <TableRow key={product.name}>
-                  <TableCell className="font-medium">{product.name}</TableCell>
-                  <TableCell>{product.category}</TableCell>
-                  <TableCell>${product.price}</TableCell>
-                  <TableCell>{product.stock}</TableCell>
+              {filteredOrders.map((order) => (
+                <TableRow key={order.id}>
+                  <TableCell className="font-medium">{order.product}</TableCell>
+                  <TableCell>{order.customer}</TableCell>
+                  <TableCell>{new Date(order.date).toLocaleDateString()}</TableCell>
+                  <TableCell>${order.totalPrice}</TableCell>
                   <TableCell>
                     <span className={`px-2 py-1 rounded-full text-xs ${
-                      product.status === 'Active' 
-                        ? 'bg-green-100 text-green-800' 
-                        : 'bg-red-100 text-red-800'
+                      order.status === 'Delivered' 
+                        ? 'bg-green-100 text-green-800'
+                        : order.status === 'Shipped'
+                        ? 'bg-blue-100 text-blue-800'
+                        : order.status === 'Processing'
+                        ? 'bg-yellow-100 text-yellow-800'
+                        : order.status === 'Cancelled'
+                        ? 'bg-red-100 text-red-800'
+                        : 'bg-gray-100 text-gray-800'
                     }`}>
-                      {product.status}
+                      {order.status}
                     </span>
                   </TableCell>
+                  <TableCell className="max-w-xs truncate">{order.address}</TableCell>
                   <TableCell>
                     <div className="flex space-x-2">
                       <Button variant="outline" size="sm">
-                        Edit
+                        View
                       </Button>
                       <Button variant="outline" size="sm">
-                        Delete
+                        Update
                       </Button>
                     </div>
                   </TableCell>
@@ -185,4 +188,4 @@ const Products = () => {
   )
 }
 
-export default Products
+export default Orders

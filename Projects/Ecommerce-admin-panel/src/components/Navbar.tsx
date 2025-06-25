@@ -1,7 +1,7 @@
-import { Input } from '../ui/input'
+import { Input } from '@/components/ui/input'
 import { BellIcon,  Menu,  MoonIcon } from 'lucide-react'
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
-import { useSidebar } from '../ui/sidebar'
+import { Avatar, AvatarFallback, AvatarImage }  from '@/components/ui/avatar'
+import { useSidebar } from '@/components/ui/sidebar'
 
 const Navbar = () => {
   const {toggleSidebar} = useSidebar();

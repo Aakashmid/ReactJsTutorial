@@ -1,8 +1,8 @@
 import PageWrapper from '@/components/layout/PageWrapper'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Table, TableBody,  TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
-import orders from '@/data/Orders'
+import orders from '@/data/OrdersData'
 
 const Overview = () => {
   return (
@@ -104,7 +104,7 @@ const Overview = () => {
                 <TableRow key={order.product} className='h-12'>
                   <TableCell className="font-medium">{order.product}</TableCell>
                   <TableCell>{order.customer}</TableCell>
-                  <TableCell className=''><span className="bg-primary py-1 rounded-lg px-3">{order.status}
+                  <TableCell className=''><span className="bg-primary py-1 rounded-xl px-3">{order.status}
                   </span></TableCell>
                   <TableCell>{order.date}</TableCell>
                   <TableCell className="">{order.totalPrice}</TableCell>
