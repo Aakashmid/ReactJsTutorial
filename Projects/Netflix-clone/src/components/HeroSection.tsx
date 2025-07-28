@@ -5,9 +5,9 @@ const HeroSection = () => {
     return (
         <div className="hero-section-wrapper relative  ">
             {/*  put bg image on this div*/}
-            <div className="relative bg-[url('/public/images/landing-page-bg.jpg')] bg-cover   bg-center flex justify-center items-center  h-[36rem] xl:h-screen ">
+            <div className="relative bg-[url('/images/landing-page-bg.jpg')] bg-cover   bg-center flex justify-center items-center  h-[36rem] xl:h-screen ">
                 <span className="bg-black/70 inset-0 absolute z-10 "></span>
-                <div className="content  px-10  md:w-[27rem] text-white z-20">
+                <div className="content  px-8  w-full text-white z-20">
                     <div className="text-center flex flex-col gap-2">
                         <h2 className=" headline font-bold text-[2rem]  leading-[2.5rem]">
                             Unlimited moveies, TV shows , and more

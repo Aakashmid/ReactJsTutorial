@@ -12,7 +12,7 @@ const Header = () => {
             {/* <Button>
               
             </Button> */}
-            <Button className="bg-red-primary rounded-md px-4 py-1">
+            <Button className="bg-red-primary rounded px-4 py-1 text-sm">
               Sign In
             </Button>
           </div>

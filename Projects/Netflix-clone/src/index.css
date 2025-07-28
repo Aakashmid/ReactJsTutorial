@@ -7,6 +7,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --font-roboto: 'Roboto';
   --color-red-primary: var(--red-primary);
   --color-gray: var(--gray);
   --radius-sm: calc(var(--radius) - 4px);
@@ -126,4 +127,9 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-VariableFont_wdth,wght.ttf');
 }
