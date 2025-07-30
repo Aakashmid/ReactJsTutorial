@@ -1,6 +1,6 @@
-import FaqData, { type FaqDataType } from '@/assets/dummyData/faqData'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@radix-ui/react-accordion'
-import { PlusIcon } from 'lucide-react'
+import FaqData, { type FaqDataType } from '@/constants/faqData'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { PlusIcon, XIcon } from 'lucide-react'
 
 
 
@@ -15,16 +15,13 @@ const Faq = () => {
                 defaultValue=""
             >
                 {FaqData.map((item: FaqDataType) => (
-                    <AccordionItem value={`item-${item.id}`} className="">
-                        <AccordionTrigger className="text-white bg-gray p-6 flex rounded-none w-full hover:bg-[#444444] transition-colors duration-300">
-                            <p className="grow text-left text-lg font-normal">
+                    <AccordionItem value={`item-${item.id}`} className="" key={item.id}>
+                        <AccordionTrigger className=" text-white hover:bg-gray-md bg-gray p-6  rounded-none w-full  transition-colors duration-300 cursor-pointer  ">
+                            <p className=" text-left text-lg font-normal ">
                                 {item.question}
                             </p>
-                            
-                            <PlusIcon className="w-6 h-auto text-white"
-                            />
                         </AccordionTrigger>
-                        <AccordionContent className="mt-[1px] flex flex-col p-6 text-lg gap-4 text-balance text-white bg-gray">
+                        <AccordionContent className="mt-[2px] flex flex-col p-6 text-lg gap-4 text-balance text-white  bg-gray">
                             {item.answer?.map((para, index) => (
                                 <p key={index} className="">
                                     {para}

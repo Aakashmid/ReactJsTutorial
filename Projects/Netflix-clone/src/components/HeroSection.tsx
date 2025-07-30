@@ -1,3 +1,4 @@
+import { ChevronRight } from "lucide-react"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 
@@ -18,9 +19,9 @@ const HeroSection = () => {
                         <p className="">Ready to watch? Enter your email to create
                             or restart your membership.</p>
                         <form className="flex md:flex-row flex-col  items-center mt-4 gap-4">
-                            <Input placeholder="Email address" className="px-4 focus:ring focus:ring-offset-2 focus:ring-white py-3 rounded  bg-[#161616]/70" />
+                            <Input placeholder="Email address" className="px-4   text-white/70 py-3 rounded  bg-[#161616]/70 border-[1px]  border-[#808080]/70 " />
                             <Button className="text-lg px-4 py-3 bg-red-primary w-fit rounded ">
-                                Get Started {">"}
+                                Get Started <ChevronRight className="size-6"/>
                             </Button>
                         </form>
                     </div>

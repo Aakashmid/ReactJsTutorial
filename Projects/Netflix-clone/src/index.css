@@ -7,8 +7,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-roboto: 'Roboto';
+
+  --font-roboto: 'Roboto' 'sans-serif';
   --color-red-primary: var(--red-primary);
+  --color-gray: var(--gray);
+  --color-gray-md: var(--gray-md);
+  --color-gray-dark: var(--gray-dark);
   --color-gray: var(--gray);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -49,6 +53,8 @@
 
 :root {
   --red-primary: #E50914;
+  --gray-md: #414141;
+  --gray-dark: #232323;
   --gray: #2D2D2D;
   --radius: 0.625rem;
 
@@ -128,6 +134,14 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+.text-stroke {
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: white;
+  -webkit-text-fill-color: var(--gray-md);
+}
+
 
 @font-face {
   font-family: 'Roboto';

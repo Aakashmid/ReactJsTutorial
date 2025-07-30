@@ -1,7 +1,8 @@
-import ReasonsData from "@/assets/dummyData/reasonsData"
+import ReasonsData from "@/constants/reasonsData"
 import Faq from "@/components/Faq"
 import HeroSection from "@/components/HeroSection"
 import ReasonCard from "@/components/ReasonCard"
+import Trending from "@/components/Trending"
 
 const Home = () => {
   return (
@@ -9,12 +10,7 @@ const Home = () => {
       <div className=" ">
         <HeroSection />
         <div className="pb-10 bg-black relative flex  flex-col gap-14 pt-14  px-5">
-          {/* <Trending/> */}
-          {/* more resons to join */}
-          {/* <div className="">
-            
-          </div> */}
-
+          <Trending/>
           <div className="resons-to-join-container">
             <h2 className="text-lg text-white my-2 font-medium">More Reasons to Join</h2>
             <div className="cards-wrapper space-y-2">
