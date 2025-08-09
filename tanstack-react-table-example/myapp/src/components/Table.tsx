@@ -45,8 +45,7 @@ export default function Table({ columns, data }: TableProps<Show>) {
         />
       </div>
       <div className="table-container">
-
-        <table className="w-3xl">
+        <table className="w-screen min-h-screen">
           <thead className="">
             {/*use the getHeaderGRoup function to render headers:*/}
             {table.getHeaderGroups().map((headerGroup) => (
@@ -81,3 +80,13 @@ export default function Table({ columns, data }: TableProps<Show>) {
     </div>
   );
 }
+
+
+/*
+
+data 
+columns def 
+
+
+
+*/ 
