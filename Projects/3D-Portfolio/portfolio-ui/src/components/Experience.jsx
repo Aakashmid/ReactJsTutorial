@@ -1,5 +1,5 @@
-// import 'react-vertical-timeline-component/style.min.css';
-// import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component'
+import 'react-vertical-timeline-component/style.min.css';
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component'
 import { motion } from 'framer-motion'
 import { textVariant } from '../utils/motion'
 import SectionWrapper from './hoc/SectionWrapper'
