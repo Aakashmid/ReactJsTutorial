@@ -9,6 +9,9 @@ import { fadeIn, textVariant } from '../utils/motion'
 
 
 const ProjectCard = ({ index, name, description, tags, image, source_code_link }) => {
+
+  // write code for removing tilt for smaller screen
+  // const [isSmall, setIsSmall] = useState(false);
   return (
     <motion.div variants={fadeIn('up', 'spring', index * 0.5, 0.75)}>
       <Tilt options={{ max: 45, scale1: 1, speed: 450 }}

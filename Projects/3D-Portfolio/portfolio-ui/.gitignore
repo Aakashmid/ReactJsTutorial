@@ -24,4 +24,5 @@ dist-ssr
 *.sw?
 .qodo
 
+.env
 note-for-me.md
