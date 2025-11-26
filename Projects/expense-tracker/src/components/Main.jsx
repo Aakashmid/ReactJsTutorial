@@ -51,26 +51,28 @@ const Main = () => {
                         </Grid>
 
                         {/* Row 1 — Chart (full mobile, half desktop) */}
+                        {totalExpense > 0 &&
+                            <Grid item xs={12} md={6}>
+                                <Chart
+                                    totalExpense={totalExpense}
+                                    totalIncome={totalIncome}
+                                />
+                            </Grid>
+                        }
+
+                        {/* Row 2 — Expenses (full width mobile, half desktop) */}
                         <Grid item xs={12} md={6}>
-                            <Chart 
-                                totalExpense={totalExpense} 
-                                totalIncome={totalIncome} 
+                            <ExpenseView
+                                type="expense"
+                                data={allTransactions}
                             />
                         </Grid>
 
-                        {/* Row 2 — Expenses (full mobile, half desktop) */}
+                        {/* Row 2 — Income (full width mobile, half desktop) */}
                         <Grid item xs={12} md={6}>
-                            <ExpenseView 
-                                type="expense" 
-                                data={allTransactions} 
-                            />
-                        </Grid>
-
-                        {/* Row 2 — Income (full mobile, half desktop) */}
-                        <Grid item xs={12} md={6}>
-                            <ExpenseView 
-                                type="income" 
-                                data={allTransactions} 
+                            <ExpenseView
+                                type="income"
+                                data={allTransactions}
                             />
                         </Grid>
 

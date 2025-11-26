@@ -154,15 +154,7 @@ const ExpenseView = ({ type, data }) => {
                           {item.description || 'No description'}
                         </Typography>
                       }
-                      secondary={
-                        <Typography
-                          variant="body2"
-                          color="text.secondary"
-                          sx={{ fontSize: { xs: '0.75rem', sm: '0.85rem' } }}
-                        >
-                          {isExpense ? 'Expense' : 'Income'} • Item {index + 1}
-                        </Typography>
-                      }
+    
                     />
                   </Box>
 
