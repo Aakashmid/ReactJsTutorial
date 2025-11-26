@@ -17,30 +17,29 @@ const Summary = () => {
   const balance = totalIncome - totalExpense
   
   return (
-    <Box sx={{ flexGrow: 1, p: 2 }}>
+    <Box sx={{ flexGrow: 1, p: { xs: 1, sm: 2 } }}>
       <Typography variant="h5" marginBottom={4} component="h2" gutterBottom >
         Financial Summary
       </Typography>
-      
-      <Grid container spacing={3}>
+      <Grid container spacing={2}>
         {/* Total Income Card */}
-        <Grid item xs={12} md={4}>
-          <Card 
-            sx={{ 
+        <Grid item xs={12} sm={4}>
+          <Card
+            sx={{
               height: '100%',
               background: 'linear-gradient(135deg, #4caf50 0%, #81c784 100%)',
-              color: 'white'
+              color: 'white',
+              mb: { xs: 2, sm: 0 }
             }}
           >
             <CardContent>
               <Box display="flex" alignItems="center" mb={2}>
-                
                 <Typography variant="h6" component="div">
                   Total Income
                 </Typography>
               </Box>
               <Typography variant="h4" component="div" fontWeight="bold">
-                ${totalIncome?.toFixed(2) || '0.00'}
+                Rs {totalIncome?.toFixed(2) || '0.00'}
               </Typography>
             </CardContent>
           </Card>
@@ -63,7 +62,7 @@ const Summary = () => {
                 </Typography>
               </Box>
               <Typography variant="h4" component="div" fontWeight="bold">
-                ${totalExpense?.toFixed(2) || '0.00'}
+                Rs {totalExpense?.toFixed(2) || '0.00'}
               </Typography>
             </CardContent>
           </Card>
@@ -88,7 +87,7 @@ const Summary = () => {
                 </Typography>
               </Box>
               <Typography variant="h4" component="div" fontWeight="bold">
-                ${balance?.toFixed(2) || '0.00'}
+                Rs {balance?.toFixed(2) || '0.00'}
               </Typography>
               <Box mt={1}>
                 <Chip 

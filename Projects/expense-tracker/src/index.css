@@ -1,1 +1,48 @@
 @import "tailwindcss";
+/* Responsive base styles */
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Segoe UI', Arial, sans-serif;
+	background: #f7f7f7;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+img, svg {
+	max-width: 100%;
+	height: auto;
+}
+
+.container {
+	width: 100%;
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0.5em 0;
+	font-weight: 600;
+}
+
+@media (max-width: 600px) {
+	.container {
+		padding: 0.5rem;
+	}
+	h1 {
+		font-size: 1.5rem;
+	}
+	h2 {
+		font-size: 1.2rem;
+	}
+	h3 {
+		font-size: 1rem;
+	}
+	body {
+		font-size: 1rem;
+	}
+}

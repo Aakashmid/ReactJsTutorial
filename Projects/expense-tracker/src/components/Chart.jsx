@@ -4,7 +4,7 @@ import React from 'react'
 
 const Chart = ({ totalIncome=10, totalExpense=40 }) => {
     return (
-        <Box sx={{ width: '100%', marginTop:7,marginLeft:4 }} >
+        <Box sx={{ width: { xs: '100%', sm: 350 }, maxWidth: '100%', marginTop: { xs: 2, sm: 7 }, marginLeft: { xs: 0, sm: 4 }, mx: 'auto' }}>
             <PieChart
                 colors={['#2e7d32', '#d32f2f']}
                 series={[
@@ -15,6 +15,8 @@ const Chart = ({ totalIncome=10, totalExpense=40 }) => {
                         ],
                     },
                 ]}
+                width={undefined}
+                height={220}
             />
         </Box>
     )

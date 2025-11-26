@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { GlobalContext } from '../context';
 import AddTransaction from './AddTransaction';
 import { Box, Container, Grid } from '@mui/material';
@@ -7,15 +7,14 @@ import ExpenseView from './ExpenseView';
 import Chart from './Chart';
 
 const Main = () => {
-
-
     const {
         totalExpense,
         allTransactions,
         setTotalExpense,
         totalIncome,
         setTotalIncome,
-        open, handleClose
+        open,
+        handleClose,
     } = useContext(GlobalContext);
 
     useEffect(() => {
@@ -24,48 +23,64 @@ const Main = () => {
 
         allTransactions.forEach((item) => {
             item.type === "income"
-                ? (income = income + parseFloat(item.amount))
-                : (expense = expense + parseFloat(item.amount));
+                ? (income += parseFloat(item.amount))
+                : (expense += parseFloat(item.amount));
         });
 
         setTotalExpense(expense);
         setTotalIncome(income);
     }, [allTransactions]);
 
-
-
-
     return (
         <main>
             <Container maxWidth="lg">
-                <Box sx={{ my: 4 }}>
-                    <Grid container spacing={2}>
-                        <Grid size={6}>
+                <Box
+                    sx={{
+                        my: { xs: 2, sm: 4 },
+                        px: { xs: 1, sm: 0 }
+                    }}
+                >
+                    <Grid
+                        container
+                        spacing={{ xs: 3, sm: 4 }}
+                    >
+
+                        {/* Row 1 — Summary (full mobile, half desktop) */}
+                        <Grid item xs={12} md={6}>
                             <Summary />
                         </Grid>
-                        <Grid size={4}>
-                        <Chart totalExpense={totalExpense} totalIncome={totalIncome}/>
+
+                        {/* Row 1 — Chart (full mobile, half desktop) */}
+                        <Grid item xs={12} md={6}>
+                            <Chart 
+                                totalExpense={totalExpense} 
+                                totalIncome={totalIncome} 
+                            />
                         </Grid>
-                        <Grid size={6}>
-                        <ExpenseView type={'expense'}  data={allTransactions}/>
+
+                        {/* Row 2 — Expenses (full mobile, half desktop) */}
+                        <Grid item xs={12} md={6}>
+                            <ExpenseView 
+                                type="expense" 
+                                data={allTransactions} 
+                            />
                         </Grid>
-                        <Grid size={6}>
-                        <ExpenseView type={"income"} data={allTransactions}/>
+
+                        {/* Row 2 — Income (full mobile, half desktop) */}
+                        <Grid item xs={12} md={6}>
+                            <ExpenseView 
+                                type="income" 
+                                data={allTransactions} 
+                            />
                         </Grid>
+
                     </Grid>
 
-                    {/* Summary Component will go here */}
-                    {/* Chart Component will go here */}
-
-
-
-                    {/* Expense and Income View Component will go here */}
-                    {/* Add Transaction Modal */}
                     <AddTransaction open={open} handleClose={handleClose} />
                 </Box>
             </Container>
         </main>
-    )
-}
+    );
+};
 
-export default Main
+export default Main;
